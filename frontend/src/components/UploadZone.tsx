@@ -74,7 +74,7 @@ export default function UploadZone({ onUpload, isLoading }: UploadZoneProps) {
               className="flex flex-col items-center gap-3"
             >
               <Loader2 className="w-10 h-10 text-[#0071E3] animate-spin" />
-              <p className="text-sm font-medium text-[#86868B]">Analyzing receipt with Gemini...</p>
+              <p className="text-sm font-medium text-[#86868B]">Analyzing receipt with the model...</p>
             </motion.div>
           ) : selectedFile ? (
             <motion.div

@@ -68,7 +68,7 @@ export default function Home() {
             <div className="w-8 h-8 bg-[#1D1D1F] rounded-lg flex items-center justify-center">
               <BarChart3 className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-xl font-semibold tracking-tight">ExpenseFlow</h1>
+            <h1 className="text-xl font-semibold tracking-tight">Xpensa</h1>
           </div>
           
           <nav className="flex bg-[#F5F5F7] p-1 rounded-full">

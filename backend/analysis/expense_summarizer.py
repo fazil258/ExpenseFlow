@@ -24,6 +24,8 @@ def summarize_expenses(top_expenses, bottom_expenses,income, investment, savings
     - A breakdown of income sources and their reliability
     - An assessment of overall financial health
     - Conclude with clear, actionable recommendations that can help improve budgeting, savings, and financial stability.
+    
+    IMPORTANT: Do NOT include any "Date:", "Subject:", or "Title" headers in your response. Just provide the analysis directly.
     """
     
     try:

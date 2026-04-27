@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Expense Tracker",
+  title: "Xpensa",
   description: "Minimalist personal expense tracker with AI insights",
 };
 

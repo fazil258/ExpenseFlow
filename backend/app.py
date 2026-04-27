@@ -36,8 +36,8 @@ def render_chatbot(expense_context=""):
 
 
 def main():
-    st.set_page_config(page_title="Personal Expense Tracker", layout="wide")
-    st.title("Personal Expense Tracker")
+    st.set_page_config(page_title="Xpensa", layout="wide")
+    st.title("Xpensa")
     st.write("Upload your financial transaction data in CSV or Image format to track and analyze your expenses and income.")   
     
     uploaded_file = st.file_uploader("Choose a CSV or Image file", type=["csv", "jpg", "jpeg", "png"])

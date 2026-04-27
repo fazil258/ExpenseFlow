@@ -128,7 +128,7 @@ async def analyze_data(transactions: List[dict]):
     try:
         df = pd.DataFrame(transactions)
         if df.empty:
-            return {"income": 0, "investment": 0, "savings": 0, "top_expenses": [], "bottom_expenses": [], "charts": {}}
+            return {"income": 0, "investment": 0, "savings": 0, "total_expenses": 0, "top_expenses": [], "bottom_expenses": [], "charts": {}}
 
         income = df[df['transaction_type'] == 'income']['amount_spent'].sum()
         investment, savings = investment_analysis(df)
@@ -141,7 +141,7 @@ async def analyze_data(transactions: List[dict]):
         # 1. Income vs Expenses
         fig1, ax1 = plt.subplots(figsize=(6, 4))
         inc_val = income
-        exp_val = df[df['transaction_type'] == 'expense']['amount_spent'].sum()
+        exp_val = df[df['transaction_type'] == 'expense']['amount_spent'].sum() if not df[df['transaction_type'] == 'expense'].empty else 0.0
         ax1.bar(['Income', 'Expenses'], [inc_val, exp_val], color=['#10B981', '#EF4444'])
         ax1.set_title('Income vs Expenses')
         charts['income_vs_expenses'] = get_base64_plot(fig1)
@@ -160,6 +160,7 @@ async def analyze_data(transactions: List[dict]):
             "income": float(income),
             "investment": float(investment),
             "savings": float(savings),
+            "total_expenses": float(exp_val),
             "top_expenses": top_exp,
             "bottom_expenses": bottom_exp,
             "charts": charts

@@ -1,13 +1,14 @@
 "use client";
 
 import React from "react";
-import { TrendingUp, Wallet, PiggyBank, ArrowUpCircle } from "lucide-react";
+import { TrendingUp, Wallet, PiggyBank, ArrowUpCircle, Receipt } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface AnalyticsData {
   income: number;
   investment: number;
   savings: number;
+  total_expenses?: number;
   top_expenses: Record<string, number>;
   charts?: Record<string, string>;
 }
@@ -17,6 +18,7 @@ export default function AnalyticsCards({ data }: { data: AnalyticsData | null })
 
   const cards = [
     { label: "Total Income", value: data.income, icon: ArrowUpCircle, color: "text-emerald-500", bg: "bg-emerald-50" },
+    { label: "Total Expenses", value: data.total_expenses || 0, icon: Receipt, color: "text-red-500", bg: "bg-red-50" },
     { label: "Investments", value: data.investment, icon: TrendingUp, color: "text-blue-500", bg: "bg-blue-50" },
     { label: "Total Savings", value: data.savings, icon: PiggyBank, color: "text-teal-500", bg: "bg-teal-50" },
   ];
