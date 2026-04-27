@@ -8,6 +8,8 @@ import UploadZone from "@/components/UploadZone";
 import ExpenseTable from "@/components/ExpenseTable";
 import AnalyticsCards from "@/components/AnalyticsCards";
 import ChatInterface from "@/components/ChatInterface";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -124,9 +126,11 @@ export default function Home() {
                   <div className="flex items-center gap-2 mb-4">
                     <h3 className="font-semibold uppercase tracking-wider text-xs text-blue-400">AI Analysis</h3>
                   </div>
-                  <p className="text-lg leading-relaxed font-medium">
-                    {summary}
-                  </p>
+                  <div className="prose prose-invert prose-lg max-w-none font-medium text-white/90">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {summary}
+                    </ReactMarkdown>
+                  </div>
                 </section>
               )}
 

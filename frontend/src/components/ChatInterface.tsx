@@ -4,6 +4,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { MessageCircle, Send, X, Bot, User, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 interface Message {
   role: "user" | "model";
@@ -88,12 +90,18 @@ export default function ChatInterface({ context }: { context: string }) {
               )}
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${
+                  <div className={`max-w-[85%] p-4 rounded-2xl ${
                     msg.role === 'user' 
-                      ? 'bg-[#0071E3] text-white rounded-tr-none' 
-                      : 'bg-[#F5F5F7] text-[#1D1D1F] rounded-tl-none'
+                      ? 'bg-[#0071E3] text-white rounded-tr-none text-sm' 
+                      : 'bg-[#F5F5F7] text-[#1D1D1F] rounded-tl-none prose prose-sm max-w-none overflow-x-auto'
                   }`}>
-                    {msg.content}
+                    {msg.role === 'user' ? (
+                      msg.content
+                    ) : (
+                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {msg.content}
+                      </ReactMarkdown>
+                    )}
                   </div>
                 </div>
               ))}

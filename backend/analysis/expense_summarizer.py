@@ -19,8 +19,11 @@ def summarize_expenses(top_expenses, bottom_expenses,income, investment, savings
     - Total investment amount: {investment}
     - Total savings amount: {savings}
     
-    Provide insights into spending habits, income sources, and overall financial health.
-    Suggest actionable recommendations for improvement.
+    Analyze the financial data and generate a well‑structured report that includes:
+    - Insights into spending habits, highlighting trends and potential areas of concern
+    - A breakdown of income sources and their reliability
+    - An assessment of overall financial health
+    - Conclude with clear, actionable recommendations that can help improve budgeting, savings, and financial stability.
     """
     
     try:
