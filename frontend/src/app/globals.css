@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "system-ui", "-apple-system", "sans-serif";
+}
+
+@layer base {
+  body {
+    @apply bg-[#FBFBFB] text-[#1D1D1F] antialiased;
+  }
+}
+
+@layer components {
+  .apple-card {
+    @apply bg-white border border-[#D2D2D7]/30 rounded-3xl shadow-sm overflow-hidden;
+  }
+  
+  .apple-button {
+    @apply px-4 py-2 bg-[#0071E3] text-white rounded-full font-medium transition-all hover:bg-[#0077ED] active:scale-95 disabled:opacity-50;
+  }
+
+  .apple-button-secondary {
+    @apply px-4 py-2 bg-[#F5F5F7] text-[#0071E3] rounded-full font-medium transition-all hover:bg-[#E8E8ED] active:scale-95;
+  }
+
+  .apple-input {
+    @apply w-full px-4 py-3 bg-[#F5F5F7] border-none rounded-xl focus:ring-2 focus:ring-[#0071E3] outline-none transition-all;
+  }
+}
